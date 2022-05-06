@@ -1,10 +1,16 @@
 import react from "react";
 import {View, Text} from 'react-native';
 
+import { Container } from "./styles";
+import Header from "../../components/Header";
+
 function Home(){
     return(
-        <View><Text> Tela Home</Text>
-        </View>
+        <Container>
+
+            <Header/>
+            <Text> Tela Home</Text>
+        </Container>
 
     )
 }
