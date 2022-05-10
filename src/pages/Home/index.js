@@ -7,7 +7,8 @@ import { Container,
         Input, 
         Title, 
         BannerButton, 
-        Banner 
+        Banner,
+        SliderMovie
     } from "./styles";
 import {Feather} from '@expo/vector-icons';
 
@@ -35,12 +36,20 @@ function Home(){
                 <Title>Em cartaz</Title>
             </ScrollView>
 
-            <BannerButton>
+            <BannerButton activeOpacity={0.9} onPress={ () => alert('Tesssste')}> 
                 <Banner
                 resizeMethod="resize"
                 Source={{uri: 'https://unsplash.com/photos/atsUqIm3wxo'}}
                 />
             </BannerButton>
+
+            <SliderMovie
+
+            horizontal={true}
+            data={1,2,3,4}
+            renderItem={({item}) => }
+            
+            />
 
 
         </Container>
