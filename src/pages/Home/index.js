@@ -1,7 +1,14 @@
 import react from "react";
-import {View, Text} from 'react-native';
+import {ScrollView} from 'react-native';
 
-import { Container, SearchContainer, SearchButton, Input } from "./styles";
+import { Container, 
+        SearchContainer, 
+        SearchButton, 
+        Input, 
+        Title, 
+        BannerButton, 
+        Banner 
+    } from "./styles";
 import {Feather} from '@expo/vector-icons';
 
 import Header from "../../components/Header";
@@ -23,6 +30,17 @@ function Home(){
                 </SearchButton>
 
             </SearchContainer>
+
+            <ScrollView>
+                <Title>Em cartaz</Title>
+            </ScrollView>
+
+            <BannerButton>
+                <Banner
+                resizeMethod="resize"
+                Source={{uri: 'https://unsplash.com/photos/atsUqIm3wxo'}}
+                />
+            </BannerButton>
 
 
         </Container>
