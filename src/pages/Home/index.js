@@ -14,6 +14,8 @@ import {Feather} from '@expo/vector-icons';
 
 import Header from "../../components/Header";
 
+import SliderItem from "../../components/SliderItem";
+
 function Home(){
     return(
         <Container>
@@ -47,7 +49,7 @@ function Home(){
 
             horizontal={true}
             data={1,2,3,4}
-            renderItem={({item}) => }
+            renderItem={({item}) => <SliderItem/> }
             
             />
 
