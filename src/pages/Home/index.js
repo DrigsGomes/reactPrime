@@ -34,24 +34,25 @@ function Home(){
 
             </SearchContainer>
 
-            <ScrollView>
+            <ScrollView showsHorizontalScrollIndicator={false}>
                 <Title>Em cartaz</Title>
-            </ScrollView>
 
-            <BannerButton activeOpacity={0.9} onPress={ () => alert('Tesssste')}> 
-                <Banner
-                resizeMethod="resize"
-                Source={{uri: 'https://unsplash.com/photos/atsUqIm3wxo'}}
+                <BannerButton activeOpacity={0.9} onPress={ () => alert('Tesssste')}> 
+                    <Banner
+                    resizeMethod="resize"
+                    Source={{uri: 'https://unsplash.com/photos/atsUqIm3wxo'}}
+                    />
+                 </BannerButton>
+
+                <SliderMovie
+                horizontal={true}
+                showsHorizontalScrollIndicator={false}
+                data={1,2,3,4}
+                renderItem={({item}) => <SliderItem/> }
+                
                 />
-            </BannerButton>
 
-            <SliderMovie
-
-            horizontal={true}
-            data={1,2,3,4}
-            renderItem={({item}) => <SliderItem/> }
-            
-            />
+            </ScrollView>
 
 
         </Container>

@@ -1,8 +1,5 @@
 import react from "react";
 
-import {View, Text} from 'react-native';
-import { SliderMovie } from "../../pages/Home/styles";
-
 import {    
     Container,
     BannerItem,
@@ -16,13 +13,14 @@ import {Ionicons} from '@expo/vector-icons'
 
 function SliderItem(){
     return(
-        <Container>
+        <Container activeOpacity={0.7}> 
 
             <BannerItem
                 source={{uri:'https://unsplash.com/photos/atsUqIm3wxo'}}
             />
 
-            <Title>Vigadores</Title>
+
+            <Title numberOfLines={1}>Vigadores</Title>
 
             <RateContainer>
                 <Ionicons name="md-star" size={12} color="#E7A74E"/>
