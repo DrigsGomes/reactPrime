@@ -52,6 +52,26 @@ function Home(){
                 
                 />
 
+                <Title>Populares</Title>
+
+                <SliderMovie
+                horizontal={true}
+                showsHorizontalScrollIndicator={false}
+                data={1,2,3,4}
+                renderItem={({item}) => <SliderItem/> }
+                
+                />
+
+                <Title>Mais votados</Title>
+
+                <SliderMovie
+                horizontal={true}
+                showsHorizontalScrollIndicator={false}
+                data={1,2,3,4}
+                renderItem={({item}) => <SliderItem/> }
+                
+                />
+
             </ScrollView>
 
 
