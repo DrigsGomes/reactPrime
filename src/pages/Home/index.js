@@ -26,14 +26,35 @@ function Home(){
         let isActive = true;
 
         async function getMovies(){
-            const response = await api.get('/movie/now_playing', {
-                params:{
-                    api_key:key,
-                    language:'pt-BR',
-                    pages:1,
 
-                }
-            })
+            const [nowData, popularData, topData] = await Promise.all([
+                api.get('/movie/now_playing', {
+                    params:{
+                        api_key: key,
+                        language:'pt-BR',
+                        page:1,
+                    }
+                }),
+
+                api.get('/movie/popular', {
+                    params:{
+                        api_key: key,
+                        language:'pt-BR',
+                        page:1,
+                    }
+                }),
+
+                api.get('/movie/top_rated', {
+                    params:{
+                        api_key: key,
+                        language:'pt-BR',
+                        page:1,
+                    }
+                }),
+            ])
+
+            console.log(popularData.data.results);
+
 
         }
         
