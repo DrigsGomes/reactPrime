@@ -1,4 +1,4 @@
-import react from "react";
+import react, {useState, useEffect}from "react";
 import {ScrollView} from 'react-native';
 
 import { Container, 
@@ -16,7 +16,18 @@ import Header from "../../components/Header";
 
 import SliderItem from "../../components/SliderItem";
 
+import api from "../../services/api";
+
 function Home(){
+
+    const [nowMovies, setNowMovies] = useState([]);
+
+    useEffect(() => {
+        cons
+    }, [])
+
+
+
     return(
         <Container>
             <Header title="React Prime"/>
