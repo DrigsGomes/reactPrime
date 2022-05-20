@@ -18,9 +18,12 @@ import SliderItem from "../../components/SliderItem";
 
 import api, {key} from "../../services/api";
 
+
 function Home(){
 
     const [nowMovies, setNowMovies] = useState([]);
+    const [popularMoveis, setPopularMoveis] = useState ([]);
+    const [topMoveis, setTopMoveis] = useState ([]);
 
     useEffect(()=>{
         let isActive = true;
@@ -52,8 +55,6 @@ function Home(){
                     }
                 }),
             ])
-
-            console.log(popularData.data.results);
 
 
         }
