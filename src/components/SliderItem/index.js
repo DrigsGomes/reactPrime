@@ -11,7 +11,7 @@ import {
 
 import {Ionicons} from '@expo/vector-icons'
 
-function SliderItem(){
+function SliderItem({ item }){
     return(
         <Container activeOpacity={0.7}> 
 
