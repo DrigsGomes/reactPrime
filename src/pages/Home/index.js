@@ -1,5 +1,5 @@
 import react, {useState, useEffect}from "react";
-import {ScrollView} from 'react-native';
+import {ScrollView, ActivityIndicator} from 'react-native';
 
 import { Container, 
         SearchContainer, 
@@ -18,7 +18,7 @@ import SliderItem from "../../components/SliderItem";
 
 import api, {key} from "../../services/api";
 
-import { getListMovies } from "../../utils/movie";
+import { getListMovies, randomBanner} from "../../utils/movie";
 
 
 function Home(){
@@ -26,9 +26,13 @@ function Home(){
     const [nowMovies, setNowMovies] = useState([]);
     const [popularMovies, setPopularMovies] = useState ([]);
     const [topMovies, setTopMovies] = useState ([]);
+    const [bannerMovie, setBannerMovie] = useState({});
+
+    const [loading, setLoading] = useState(true);
 
     useEffect(()=>{
         let isActive = true;
+        const ac = new AbortController();
 
         async function getMovies(){
 
@@ -58,22 +62,39 @@ function Home(){
                 }),
             ])
 
-            const nowList = getListMovies(10, nowData.data.results);
-            const popularList = getListMovies(5, popularData.data.results);
-            const topList = getListMovies(5, topData.data.results);
+            
 
+            if(isActive){
+                const nowList = getListMovies(10, nowData.data.results);
+                const popularList = getListMovies(5, popularData.data.results);
+                const topList = getListMovies(8, topData.data.results);
 
-            setNowMovies(nowList);
-            setPopularMovies(popularList);
-            setTopMovies(topList);
-
-
+                setBannerMovie(nowData.data.results[randomBanner(nowData.data.results)])
+                setNowMovies(nowList);
+                setPopularMovies(popularList);
+                setTopMovies(topList);
+                setLoading(false);        
+            }
 
         }
         
         getMovies();
 
+        return () =>{
+            isActive = false;
+            ac.abort()
+        }
+
     }, [])
+
+    if(loading){
+        return(
+            <Container>
+                <ActivityIndicator size="large" color="#FFF"/>
+            </Container>
+        )
+
+    }
 
 
 
@@ -100,7 +121,7 @@ function Home(){
                 <BannerButton activeOpacity={0.9} onPress={ () => alert('Tesssste')}> 
                     <Banner
                     resizeMethod="resize"
-                    Source={{uri: 'https://unsplash.com/photos/atsUqIm3wxo'}}
+                    Source={{uri: `https://image.tmdb.org/t/p/original/${bannerMovie.poster_path}` }}
                     />
                  </BannerButton>
 
