@@ -20,6 +20,8 @@ import api, {key} from "../../services/api";
 
 import { getListMovies, randomBanner} from "../../utils/movie";
 
+import { useNavigation } from "@react-navigation/core";
+
 
 function Home(){
 
@@ -29,6 +31,8 @@ function Home(){
     const [bannerMovie, setBannerMovie] = useState({});
 
     const [loading, setLoading] = useState(true);
+
+    const navigation = useNavigation();
 
     useEffect(()=>{
         let isActive = true;
@@ -87,6 +91,11 @@ function Home(){
 
     }, [])
 
+    function navigateDetalPage(item){
+        navigation.navigate('Detail', {id: item.id});
+
+    }
+
     if(loading){
         return(
             <Container>
@@ -118,7 +127,7 @@ function Home(){
             <ScrollView showsHorizontalScrollIndicator={false}>
                 <Title>Em cartaz</Title>
 
-                <BannerButton activeOpacity={0.9} onPress={ () => alert('Tesssste')}> 
+                <BannerButton activeOpacity={0.9} onPress={ () => navigateDetalPage(bannerMovie)}> 
                     <Banner
                     resizeMethod="resize"
                     Source={{uri: `https://image.tmdb.org/t/p/original/${bannerMovie.poster_path}` }}
@@ -129,7 +138,7 @@ function Home(){
                 horizontal={true}
                 showsHorizontalScrollIndicator={false}
                 data={nowMovies}
-                renderItem={({item}) => <SliderItem data={item}/> }
+                renderItem={({item}) => <SliderItem data={item} navigatePage={ () => navigateDetalPage(item)} /> }
                 keyExctractor={(item) => String(item.id)}
                 />
 
@@ -139,7 +148,7 @@ function Home(){
                 horizontal={true}
                 showsHorizontalScrollIndicator={false}
                 data={popularMovies}
-                renderItem={({item}) => <SliderItem data={item}/> }
+                renderItem={({item}) => <SliderItem data={item} navigatePage={ () => navigateDetalPage(item)} /> }
                 keyExctractor={(item) => String(item.id)}
                 />
 
@@ -149,7 +158,7 @@ function Home(){
                 horizontal={true}
                 showsHorizontalScrollIndicator={false}
                 data={topMovies}
-                renderItem={({item}) => <SliderItem data={item}/> }
+                renderItem={({item}) => <SliderItem data={item} navigatePage={ () => navigateDetalPage(item)} /> }
                 keyExctractor={(item) => String(item.id)}             
                 />
 
