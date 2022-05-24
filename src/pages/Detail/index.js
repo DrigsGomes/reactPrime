@@ -1,15 +1,39 @@
 import react from "react";
 
-import { Container, Tilte} from "./styles";
+import { 
+    Container,
+    Header,
+    HeaderButton
+} from "./styles";
+
+import {Feather, Ionicons} from "@expo/vector-icons";
 
 
 function Detail(){
     return(
         <Container>
-            <Tilte> Test </Tilte>
+            <Header>
+                <HeaderButton>
+                    <Feather
+                        name="arrow-left"
+                        size={28}
+                        color="#FFF"
+                    />
+                </HeaderButton>
+
+                <HeaderButton>
+                    <Ionicons
+                        name="bookmark"
+                        size={28}
+                        color="#FFF"
+                    
+                    />
+                </HeaderButton>
+            </Header>
 
         </Container>
     )
 }
 
 export default Detail; 
+
