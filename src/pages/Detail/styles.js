@@ -25,5 +25,31 @@ export const HeaderButton = styled.TouchableOpacity`
     align-items: center;
 `;
 
-export const Banner = styled.Image``;
+export const Banner = styled.Image`
+    width:100%;
+    height:350px;
+    border-bottom-left-radius: 70px;
+    border-bottom-right-radius:70px;
 
+`;
+
+export const ButtonLink = styled.TouchableOpacity`
+    background-color: #E72F49;
+    width:63px;
+    height:63px;
+    border-radius:35px;
+    position:absolute;
+    top:300px;
+    right:15px;
+    justify-content:center;
+    align-items:center;
+    z-index:99;
+`;
+
+export const Title = styled.Text`
+    color:#FFF;
+    font-size:24;
+    font-weight:bold;
+    padding:8px 14px;
+    margin-top:8px;
+`;

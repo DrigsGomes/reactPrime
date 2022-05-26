@@ -4,7 +4,9 @@ import {
     Container,
     Header,
     HeaderButton,
-    Banner
+    Banner,
+    ButtonLink,
+    Title
 } from "./styles";
 
 import {Feather, Ionicons} from "@expo/vector-icons";
@@ -35,7 +37,6 @@ function Detail(){
 
             if(isActive){
                 setMovie(response.data);
-                console.log(response.data);
             }
         }
 
@@ -52,7 +53,7 @@ function Detail(){
     return(
         <Container>
             <Header>
-                <HeaderButton>
+                <HeaderButton activeOpacity={0.7} onPress={() => navigation.goBack()}>
                     <Feather
                         name="arrow-left"
                         size={28}
@@ -69,6 +70,17 @@ function Detail(){
                     />
                 </HeaderButton>
             </Header>
+            
+            <Banner
+            resizeMethod="resize"
+            source={{uri: `https://image.tmdb.org/t/p/original/${movie.poster_path}` }}
+            />
+
+            <ButtonLink>
+                <Feather name="link" size={24} color="#FFF"/>
+            </ButtonLink>
+
+            <Title numberOfLines={2}>{movie.title}</Title>
 
         </Container>
     )
