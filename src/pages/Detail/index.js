@@ -22,11 +22,30 @@ function Detail(){
 
         let isActive = true;
 
-        async function getMovie{
+        async function getMovie(){
+            const response = await api.get(`/movie/${route.params?.id}`, {
+                params:{
+                    api_key: key,
+                    language:'pt-BR'
+                }
+            })
+            .catch((err) =>{
+                console.log(err);
+            })
 
+            if(isActive){
+                setMovie(response.data);
+                console.log(response.data);
+            }
         }
 
-        getMovie();
+        if(isActive){
+            getMovie();
+        }
+
+        return () =>{
+            isActive=false;
+        }
 
     }, []);
 
