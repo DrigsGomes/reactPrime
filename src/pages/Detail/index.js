@@ -1,15 +1,35 @@
-import react from "react";
+import react, {useState, useEffect} from "react";
 
 import { 
     Container,
     Header,
-    HeaderButton
+    HeaderButton,
+    Banner
 } from "./styles";
 
 import {Feather, Ionicons} from "@expo/vector-icons";
+import { useNavigation, useRoute } from "@react-navigation/core";
 
+import api, {key} from '../../services/api'
 
 function Detail(){
+    const navigation = useNavigation();
+    const route = useRoute();
+
+    const [movie, setMovie] = useState({});
+
+    useEffect( () => {
+
+        let isActive = true;
+
+        async function getMovie{
+
+        }
+
+        getMovie();
+
+    }, []);
+
     return(
         <Container>
             <Header>
