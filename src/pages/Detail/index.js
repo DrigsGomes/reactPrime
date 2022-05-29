@@ -6,13 +6,16 @@ import {
     HeaderButton,
     Banner,
     ButtonLink,
-    Title
+    Title,
+    ContentArea
 } from "./styles";
 
 import {Feather, Ionicons} from "@expo/vector-icons";
 import { useNavigation, useRoute } from "@react-navigation/core";
 
-import api, {key} from '../../services/api'
+import api, {key} from '../../services/api';
+
+import Stars from 'react-native-stars';
 
 function Detail(){
     const navigation = useNavigation();
@@ -81,6 +84,20 @@ function Detail(){
             </ButtonLink>
 
             <Title numberOfLines={2}>{movie.title}</Title>
+
+            <ContentArea>
+                <Stars
+                    default={movie.vote_average}
+                    count={10}
+                    half={true}
+                    startSize={20}
+                    fullStar={<Ionicons name="md-star" size={24} color="#E7A74E"/>}
+                    emptyStar={<Ionicons name="md-star" size={24} color="#E7A74E"/>}
+                    halfStar={<Ionicons name="md-star" size={24} color="#E7A74E"/>}
+                    disable={true}
+                
+                />
+            </ContentArea>
 
         </Container>
     )

@@ -53,3 +53,5 @@ export const Title = styled.Text`
     padding:8px 14px;
     margin-top:8px;
 `;
+
+
