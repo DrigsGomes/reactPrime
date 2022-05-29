@@ -54,4 +54,16 @@ export const Title = styled.Text`
     margin-top:8px;
 `;
 
+export const ContentArea = styled.View`
+    flex-direction: row;
+    align-items: center;
+    padding:0 14px;
+    justify-content:space-between;
 
+`;
+
+export const Rate = styled.Text`
+    font-size: 18px;
+    font-weight:bold;
+    color:#FFF
+`;

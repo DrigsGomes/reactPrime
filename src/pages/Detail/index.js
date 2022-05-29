@@ -7,7 +7,8 @@ import {
     Banner,
     ButtonLink,
     Title,
-    ContentArea
+    ContentArea,
+    Rate
 } from "./styles";
 
 import {Feather, Ionicons} from "@expo/vector-icons";
@@ -92,11 +93,13 @@ function Detail(){
                     half={true}
                     startSize={20}
                     fullStar={<Ionicons name="md-star" size={24} color="#E7A74E"/>}
-                    emptyStar={<Ionicons name="md-star" size={24} color="#E7A74E"/>}
-                    halfStar={<Ionicons name="md-star" size={24} color="#E7A74E"/>}
+                    emptyStar={<Ionicons name="md-star-outline" size={24} color="#E7A74E"/>}
+                    halfStar={<Ionicons name="md-star-half" size={24} color="#E7A74E"/>}
                     disable={true}
                 
                 />
+
+                <Rate>{movie.vote_average}/10</Rate>
             </ContentArea>
 
         </Container>
