@@ -21,7 +21,6 @@ import Stars from 'react-native-stars';
 
 import Genres from "../../components/Genres";
 
-
 function Detail(){
     const navigation = useNavigation();
     const route = useRoute();
@@ -111,7 +110,7 @@ function Detail(){
                 horizontal={true}
                 showsHorizontalScrollIndicator={false}
                 keyExtractor={(item) => String(item.id)}
-                renderItem={ (item) =>  <Genres data={item}/>}
+                renderItem={ ({item}) =>  <Genres data={item}/>}
             /> 
 
         </Container>

@@ -10,4 +10,6 @@ export const Container = styled.View`
     border-radius:8px;
 `;
 
-export const Name = styled.Text``;
+export const Name = styled.Text`
+    font-size:18px;
+`;
