@@ -9,7 +9,7 @@ import {
     Title,
     ContentArea,
     Rate,
-    LiestGenres
+    ListGenres
 } from "./styles";
 
 import {Feather, Ionicons} from "@expo/vector-icons";
@@ -106,10 +106,10 @@ function Detail(){
                 <Rate>{movie.vote_average}/10</Rate>
             </ContentArea>
 
-            <LiestGenres
+            <ListGenres
                 data={movie?.genres}
                 horizontal={true}
-                showHorizontalScrollIndicator={false}
+                showsHorizontalScrollIndicator={false}
                 keyExtractor={(item) => String(item.id)}
                 renderItem={ (item) =>  <Genres data={item}/>}
             /> 

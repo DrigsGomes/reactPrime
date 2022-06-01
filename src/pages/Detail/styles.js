@@ -68,7 +68,7 @@ export const Rate = styled.Text`
     color:#FFF;
 `;
 
-export const LiestGenres = styled.FlatList`
+export const ListGenres = styled.FlatList`
     padding-left: 14;
     margin: 8px 0;
     max-height: 35px;
